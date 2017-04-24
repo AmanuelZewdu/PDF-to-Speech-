@@ -5,10 +5,10 @@ import pyPdf
 
 def getPDFContent(path):
     content = ""
-    num_pages = 1
+    num_pages = 3
 
     # PATH OF THE PDF FILE
-    p = file( 'C:/Users/Amanuel/Desktop/new/prayer.pdf', 'rb')
+    p = file( 'C:/Users/Amanuel/Desktop/new/report_writing.pdf', 'rb')
     pdf = pyPdf.PdfFileReader(p)
     for i in range(0, num_pages):
         content += pdf.getPage(i).extractText() + "\n"
@@ -17,7 +17,7 @@ def getPDFContent(path):
 
 
 # OPEN THE TEXT FILE
-f = open('test.txt', 'w')
+f = open('test4.txt', 'w')
 
 # CALL THE FUNCTION AND PASS THE PDF FILE
 pdfl = getPDFContent("sample.pdf").encode("ascii", "ignore")

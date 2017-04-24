@@ -2,10 +2,11 @@
 import sys
 import pyPdf
 import os
+import pyttsx
 
 def getPDFContent(path):
     content = ""
-    path = 'C:/Users/Amanuel/Desktop/new/Doc.pdf'
+    path = 'C:/Users/Amanuel/Desktop/new/Let Us Pray.pdf'
 # Load PDF into pyPDF
     pdf = pyPdf.PdfFileReader(file(path, 'rb'))
 # Iterate pages
@@ -14,6 +15,10 @@ def getPDFContent(path):
         content += pdf.getPage(i).extractText() + " \n"
 # Collapse whitespace
 # content = u" ".join(content.replace(u"\xa0", u" ").strip().split())
+
+    engine = pyttsx.init()
+    #engine.say(content)
+    #engine.runAndWait()
     return content
 
 
@@ -26,5 +31,8 @@ f = open(outtxt,'w')
 f.write(getPDFContent(pdf))
 f.close()
 print f
+
+
+
 
 #exit()
