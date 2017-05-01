@@ -2,11 +2,14 @@ import pyPdf
 import os
 import sys
 import pyttsx
+import text_speech
+import time
 
 class pdf_text(object):
 
     def __init__(self,path):
         self.path=path
+        self.speech = text_speech.text_speech()
 
     def extract_text(self):
 
@@ -34,10 +37,14 @@ class pdf_text(object):
 
 
     def read_text(self):
-        engine = pyttsx.init()
-        engine.say(self.extract_text())
-        engine.runAndWait()
+        #engine = pyttsx.init()
+        #engine.say(self.extract_text())
+        #engine.runAndWait()
+        self.speech.read_text(self.extract_text())
 
+        time.sleep(5)
+
+        self.speech.Interupt_Speech()
 
 
 obj = pdf_text('C:/Users/Amanuel/Desktop/new/prayer.pdf')
